@@ -1,0 +1,39 @@
+<?php
+class Contact{
+
+public function index(){
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $connect = new Get();
+        $products = $connect->getdata();
+        print_r($products);
+    }
+
+}
+//addto cart
+public  function create(){
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $data = new Product();
+        
+        
+        $data->setId($_REQUEST['itemid']);
+        $data->setSize($_REQUEST['itemsize']);
+        $data->setQuantity($_REQUEST['itemquantity']);
+
+        $itemid= $data->getId() ;
+        $itemsize= $data->getSize() ;
+        $itemquantity = $data->getQuantity();
+
+
+        $addproduct = new Cookie();
+
+        $addproduct->cart($itemid, $itemsize , $itemquantity);
+        
+
+    
+    }
+}
+}
+
+
+?>
