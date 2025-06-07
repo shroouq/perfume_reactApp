@@ -1,0 +1,12 @@
+<?php
+class Now extends Connect{
+
+    public  function buynow($id , $size, $quantity , $data , $price){
+        $this->setBuy($id ,$size , $quantity, $data, $price);
+        print_r("true");
+        exit();
+    }
+
+
+
+}
